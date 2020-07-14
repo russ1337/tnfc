@@ -57,7 +57,7 @@ export default function NewStaff() {
                 "photo": state.photo,
             })
         };
-        fetch('http://localhost:3500/api/staff', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/staff', requestOptions)
             .then((result) => result.json())
             .then((result) => {
 

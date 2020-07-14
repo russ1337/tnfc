@@ -38,7 +38,7 @@ export default function Oldpost() {
     useEffect(() => {
 // Update the document title using the browser API
         setPage(page);
-        fetch('http://localhost:3500/api/blog/posts?page=' + page + '&per_page=10', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/blog/posts?page=' + page + '&per_page=10', requestOptions)
             .then((result) => result.json())
             .then(
                 (result) => result.map((item) => item.totalPages ? setPageCount(item.totalPages) : setData(result))

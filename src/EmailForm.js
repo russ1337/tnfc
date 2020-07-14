@@ -39,7 +39,7 @@ export default function SendMail() {
                 "message": state.message,
             })
         };
-        fetch('http://localhost:3500/api/send-mail', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/send-mail', requestOptions)
             .then((result) => result.json());
     }
     const handleChange = (event) => {

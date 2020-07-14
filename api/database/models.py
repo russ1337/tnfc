@@ -7,8 +7,10 @@ import base64
 from tempfile import TemporaryFile
 
 class BlogPost(db.Document):
+    folderId = db.StringField(required=True, unique=True)
     title = db.StringField(required=True, unique=True)
     subTitle = db.StringField()
+    pictures = db.ListField(db.StringField(), default=[])
     article = db.StringField(required=True)
     date_created = db.StringField()
     date_created_order = db.DateTimeField()
@@ -41,7 +43,7 @@ class Staff(db.Document):
 
 class Pages(db.Document):
     pageName = db.StringField(required=True, unique=True)
-    pictures = db.ListField(db.StringField())
+    pictures = db.ListField(db.StringField(), default=[])
     body = db.StringField(required=True)
 
 class VolunteerSignup(db.Document):

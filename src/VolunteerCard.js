@@ -63,7 +63,7 @@ export default function VolunteerCard() {
                 "interests": state.interests,
             })
         };
-        fetch('http://localhost:3500/api/volunteer-signup', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/volunteer-signup', requestOptions)
             .then((result) => result.json());
     }
     const handleChange = (event) => {

@@ -76,7 +76,7 @@ export default function ContactCard(props) {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({"email": email})
             };
-            fetch('http://localhost:3500/api/newsletter-signup', requestOptions)
+            fetch('//'+window.location.hostname+':3500/api/newsletter-signup', requestOptions)
                 .then((result) => result.json())
                 .then((result) => {
 

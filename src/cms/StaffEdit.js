@@ -78,7 +78,7 @@ export default function StaffEdit(props) {
             })
         };
 
-        fetch('http://localhost:3500/api/staff/' + state.id, requestOptionsPut)
+        fetch('//'+window.location.hostname+':3500/api/staff/' + state.id, requestOptionsPut)
             .then((result) => result.json())
             .then((result) => {
 
@@ -94,7 +94,7 @@ export default function StaffEdit(props) {
 
     useEffect(() => {
         // Update the document title using the browser API
-        fetch('http://localhost:3500/api/staff/' + props.postId, requestOptionsGet)
+        fetch('//'+window.location.hostname+':3500/api/staff/' + props.postId, requestOptionsGet)
             .then((result) => result.json())
             .then(
                 (result) =>

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
-import './App.css';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -13,7 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import {makeStyles} from '@material-ui/core/styles';
-import Image from './img/pic3.jpg'; // Import using relative path
+import Image from './img/pic6.jpg'; // Import using relative path
 import MUIRichTextEditor from "mui-rte";
 import BlogLatest from './blogLatest';
 import {
@@ -87,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
     },
     centerAlign: {
         textAlign: 'center',
+    },
+    mobileHide: {
+        [theme.breakpoints.down('md')]: {
+            display: 'none !important',
+        },
     }
 }));
 
@@ -110,7 +114,7 @@ export default function BlogPost() {
     useEffect(() => {
 // Update the document title using the browser API
 
-        fetch('http://localhost:3500/api/blog/' + articleId, requestOptionsGet)
+        fetch('//'+window.location.hostname+':3500/api/blog/' + articleId, requestOptionsGet)
             .then((result) => result.json())
             .then(
                 (result) =>
@@ -128,11 +132,11 @@ export default function BlogPost() {
     return (
 
         <Container className={classes.pBody}>
-            <Grid container spacing={0}>
+            <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <br/>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={12} lg={9}>
                     <Typography gutterBottom component="h1" className={classes.postHead}>{state.title}</Typography>
                     <Typography gutterBottom component="span"
                                 className={classes.postSubhead}>{state.subTitle}</Typography>
@@ -144,7 +148,7 @@ export default function BlogPost() {
                         toolbar={false}
                     />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} lg={3}>
 
                     <Card className={classes.root}>
                         <CardContent>
@@ -156,11 +160,11 @@ export default function BlogPost() {
                         <CardActions>
                             <BlogLatest/>
                         </CardActions>
-                        <CardActions>
+                        <CardActions className={classes.mobileHide}>
                             <Button variant="contained" className={classes.donate}>donate</Button>
                             <Button variant="contained" className={classes.contact}>contact</Button>
                         </CardActions>
-                        <CardActions>
+                        <CardActions className={classes.mobileHide}>
                             <Grid container>
                                 <Grid item className={classes.centerAlign} xs={4}><a href="#"><FacebookIcon
                                     className={classes.facebokIcon}/></a></Grid>

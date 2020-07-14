@@ -45,7 +45,7 @@ export default function SignUp() {
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
             body: JSON.stringify({"email": state.email, "password": state.password,})
         };
-        fetch('http://localhost:3500/api/auth/signup', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/auth/signup', requestOptions)
             .then((result) => result.json())
             .then((result) => {
 

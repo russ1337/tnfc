@@ -19,28 +19,8 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import Logo from './img/logo.png';
-import AppBar from '@material-ui/core/AppBar';
-import Nav from './Nav';
-import Image from './img/pic7.jpg'; // Import using relative path
 
 const useStyles = makeStyles((theme) => ({
-    homeHeader: {
-        backgroundImage: `url(${Image})`,
-        backgroundSize: "cover",
-        height: "500px",
-        backgroundPosition: "center center",
-        position: 'relative',
-    },
-    homeBg: {
-        position: 'absolute',
-        overflow: 'hidden',
-        zIndex: '-100',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        boxSizing: 'border-box',
-        paddingTop: '200px',
-    },
     accomplishments: {
         backgroundColor: "#e6ffff",
     },
@@ -110,8 +90,10 @@ function Home() {
             <Grid item xs={12} md={12} className={classes.vision}>
                 <Container>
 
+                    <h1 className={classes.homeH1}><img className={classes.homeLogo} src={Logo}/></h1>
                     <h2 className={classes.homeH2Main}>Accomplishing Change Through</h2>
                     <Timeline align="alternate">
+
                         <TimelineItem>
                             <TimelineSeparator>
                                 <TimelineDot className={classes.firstIcon}>
@@ -215,19 +197,5 @@ function Home() {
         </Grid>
     );
 }
-
-export function HomeHead() {
-    const classes = useStyles();
-    return (
-        <AppBar position="static" className={classes.homeHeader}>
-            <Nav/>
-            <div className={classes.homeBg}>
-                <Container maxWidth="md">
-                    <h1><img className={classes.homeLogo} src={Logo}/></h1>
-                </Container>
-            </div>
-        </AppBar>
-    )
-};
 
 export default Home;

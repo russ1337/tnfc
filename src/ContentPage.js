@@ -42,7 +42,7 @@ export default function ContentPage(props) {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3500/api/pages/'+props.pageId, requestOptionsGet)
+        fetch('//'+window.location.hostname+':3500/api/pages/'+props.pageId, requestOptionsGet)
             .then((result) => result.json())
             .then(
                 (result) =>

@@ -11,24 +11,30 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ContactCard from './ContactCard';
 import Logo from './img/logo.png';
 import {makeStyles} from '@material-ui/core/styles';
-import {
-    Link
-} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
     navbar: {
         backgroundColor: 'rgba(0,0,0,0.5)',
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-between',
     },
     menuicon: {
         color: '#ffbd45',
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('lg')]: {
             display: 'none !important',
         },
+    },
+    imgHide: {
+        [theme.breakpoints.up('lg')]: {
+            display: 'none !important',
+        },
+        height: '60px',
     },
     fullnav: {
         width: '100%',
         textAlign: 'center',
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             display: 'none',
         },
         '& .MuiButtonBase-root': {
@@ -94,26 +100,26 @@ export default function Nav() {
     };
     const list = anchor => (
         <List>
-            <ListItem button key={"Root"}>
+            <ListItem button onClick={()=> window.location.href = '/'} key={"Root"}>
                 <ListItemText><img className={classes.navLogo} src={Logo}/></ListItemText>
             </ListItem>
-            <ListItem button key={"Home"}>
-                <ListItemText primary={<Link to="/">Home</Link>}/>
+            <ListItem button onClick={()=> window.location.href = '/'} key={"Home"}>
+                <ListItemText primary={'Home'}/>
             </ListItem>
-            <ListItem button key={"About Us"}>
-                <ListItemText primary={<Link to="/aboutus">About Us</Link>}/>
+            <ListItem button onClick={()=> window.location.href = '/aboutus'} key={"About Us"}>
+                <ListItemText primary={'About Us'}/>
             </ListItem>
-            <ListItem button key={"Our Impact"}>
+            <ListItem button onClick={()=> window.location.href = '/'} key={"Our Impact"}>
                 <ListItemText primary={"Our Impact"}/>
             </ListItem>
-            <ListItem button key={"Programs"}>
-                <ListItemText primary={<Link to="/programs">Programs</Link>}/>
+            <ListItem button onClick={()=> window.location.href = '/programs'} key={"Programs"}>
+                <ListItemText primary={'Programs'}/>
             </ListItem>
-            <ListItem button key={"News"}>
-                <ListItemText primary={<Link to="/news">News</Link>}/>
+            <ListItem button onClick={()=> window.location.href = '/news'} key={"News"}>
+                <ListItemText primary={'News'}/>
             </ListItem>
-            <ListItem button key={"Get Involved!"}>
-                <ListItemText primary={<Link className={classes.involvedLink} to="/getinvolved">Get Involved!</Link>}/>
+            <ListItem button onClick={()=> window.location.href = '/getinvolved'} key={"Get Involved!"}>
+                <ListItemText className={classes.involvedLink} primary={'Get Involved!'}/>
             </ListItem>
             <ListItem button key={"Donate"}>
                 <ListItemText primary={<span className={classes.donateLink}>Donate</span>}/>
@@ -139,6 +145,7 @@ export default function Nav() {
                 >
                     <MenuIcon/>
                 </IconButton>
+                <img className={classes.imgHide} src={Logo}/>
             </Toolbar>
             <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
                 <div>

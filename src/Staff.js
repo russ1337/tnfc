@@ -22,7 +22,7 @@ function Staff(props) {
     }));
     const classes = staffStyles();
     const [{data, loading, error}, refetch] = useAxios(
-        'http://localhost:3500/api/staff'
+        '//'+window.location.hostname+':3500/api/staff'
     )
 
     if (loading) return <p>Loading...</p>
@@ -87,12 +87,12 @@ function Item(props) {
         setHeight(height === 200 ? 'auto' : 200);
     };
     return (
-        <Grid item xs={4}>
+        <Grid item xs={12} md={6} lg={4} >
             <Card className={classes.profileCard}>
                 <CardMedia
                     square
                     className={classes.profilePic}
-                    image={'http://localhost:3500/api/staff/pic/' + props.item._id.$oid}
+                    image={'//'+window.location.hostname+':3500/api/staff/pic/' + props.item._id.$oid}
                     title={props.item.name}
                 >
                 </CardMedia>

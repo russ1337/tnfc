@@ -39,13 +39,6 @@ export default function PageEdit(props) {
         evt.preventDefault();
         ref.current.save()
     }
-    const handleChange = (event) => {
-        const name = event.target.name;
-        setState({
-            ...state,
-            [name]: event.target.value,
-        });
-    };
     const handleFileSubmit = () => {
         let i
         for (i = 0; i < files.length; i++) {
@@ -57,7 +50,7 @@ export default function PageEdit(props) {
                 body: files[i]
             };
 
-            fetch('http://localhost:3500/api/files/' + state.id + '/' + files[i].name, requestOptionsPost)
+            fetch('//'+window.location.hostname+':3500/api/files/' + state.id + '/' + files[i].name, requestOptionsPost)
                 .then(
                     response => response.json() // if the response is a JSON object
                 ).then(
@@ -94,7 +87,7 @@ export default function PageEdit(props) {
             })
         };
 
-        fetch('http://localhost:3500/api/pages/' + state.id, requestOptionsPut)
+        fetch('//'+window.location.hostname+':3500/api/pages/' + state.id, requestOptionsPut)
             .then((result) => result.json())
             .then((result) => {
 
@@ -112,7 +105,7 @@ export default function PageEdit(props) {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3500/api/pages/' + props.postId, requestOptionsGet)
+        fetch('//'+window.location.hostname+':3500/api/pages/' + props.postId, requestOptionsGet)
             .then((result) => result.json())
             .then(
                 (result) =>

@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
         float: 'right',
         width: '400px',
         padding: '20px',
+        [theme.breakpoints.down('md')]: {
+            float: 'none !important',
+            margin: '0 auto',
+        },
     }
 }));
 

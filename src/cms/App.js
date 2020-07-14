@@ -49,7 +49,7 @@ export default function App() {
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
             body: JSON.stringify({"email": state.email, "password": state.password,})
         };
-        fetch('http://localhost:3500/api/auth/login', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/auth/login', requestOptions)
             .then((result) => result.json())
             .then((result) => {
 
