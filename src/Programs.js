@@ -3,6 +3,7 @@ import './App.css';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Nav from './Nav';
+import ProgramForm from './ProgramForm';
 import {makeStyles} from '@material-ui/core/styles';
 import Image from './img/pic5.jpg'; // Import using relative path
 import Chart from './img/transition-chart.jpg'; // Import using relative path
@@ -59,7 +60,7 @@ export default function Program() {
             <br/>
             <span className={classes.orangeText}>The Bridge – Our Model For Success</span>
             <br/>
-            <img className={classes.programImage} src={Chart}/>
+            <img className={classes.programImage} alt={"chart"} src={Chart}/>
             <p className={classes.p1}>Through The Bridge program, TNFC delivers barrier-free access to transition
                 services. It works to provide multisystemic support with the recognition that
                 young people with experience in foster care encounter barriers requiring an
@@ -107,6 +108,9 @@ export default function Program() {
                 person will be accepted into the program level appropriate to his/her stage of development.
             </p>
             <br/>
+            <Container maxWidth="sm">
+                <ProgramForm/>
+            </Container>
         </Container>
     );
 }

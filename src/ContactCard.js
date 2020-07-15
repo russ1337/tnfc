@@ -95,9 +95,6 @@ export default function ContactCard(props) {
     }
     const [open, setOpen] = useState(true);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -107,7 +104,7 @@ export default function ContactCard(props) {
             <DialogTitle className={classes.root} id="simple-dialog-title">Contact Us!</DialogTitle>
             <DialogContent>
                 <Container maxWidth="xs">
-                    <Typography gutterBottom component="p">
+                    <Typography gutterBottom component={'p'}>
 
                         <List className={classes.root}>
                             <ListItem>
@@ -143,7 +140,7 @@ export default function ContactCard(props) {
                               alignItems="center"
                               spacing={2}>
                             <Grid item xs={12}>
-                                <Typography component="p">
+                                <Typography component={'p'}>
                                     Sign Up For Our Newsletter!
                                 </Typography>
                             </Grid>

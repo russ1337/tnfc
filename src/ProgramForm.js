@@ -38,7 +38,7 @@ export default function SendMail() {
                 "message": state.message,
             })
         };
-        fetch('//'+window.location.hostname+':3500/api/messages', requestOptions)
+        fetch('//'+window.location.hostname+':3500/api/program-questions', requestOptions)
             .then((result) => result.json());
     }
     const handleChange = (event) => {
@@ -60,7 +60,7 @@ export default function SendMail() {
                 <Grid item xs={12}>
 
                     <Typography component={'p'}>
-                        Send Us a Message!
+                        Have questions about our Programs?
                     </Typography>
                 </Grid>
                 <Grid item xs={6}>

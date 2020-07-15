@@ -92,16 +92,13 @@ export default function Nav() {
 
     const classes = useStyles();
     const [openContact, setOpenContact] = useState(false);
-    const handleClose = () => {
-        setOpenContact(false);
-    };
     const handleToggle = () => {
         setOpenContact(!openContact);
     };
     const list = anchor => (
         <List>
             <ListItem button onClick={()=> window.location.href = '/'} key={"Root"}>
-                <ListItemText><img className={classes.navLogo} src={Logo}/></ListItemText>
+                <ListItemText><img className={classes.navLogo} alt={"logo"} src={Logo}/></ListItemText>
             </ListItem>
             <ListItem button onClick={()=> window.location.href = '/'} key={"Home"}>
                 <ListItemText primary={'Home'}/>
@@ -109,7 +106,7 @@ export default function Nav() {
             <ListItem button onClick={()=> window.location.href = '/aboutus'} key={"About Us"}>
                 <ListItemText primary={'About Us'}/>
             </ListItem>
-            <ListItem button onClick={()=> window.location.href = '/'} key={"Our Impact"}>
+            <ListItem button onClick={()=> window.location.href = '/impact'} key={"Our Impact"}>
                 <ListItemText primary={"Our Impact"}/>
             </ListItem>
             <ListItem button onClick={()=> window.location.href = '/programs'} key={"Programs"}>
@@ -137,7 +134,6 @@ export default function Nav() {
                     {list()}
                 </div>
                 <IconButton
-                    color="black"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="end"
@@ -145,7 +141,7 @@ export default function Nav() {
                 >
                     <MenuIcon/>
                 </IconButton>
-                <img className={classes.imgHide} src={Logo}/>
+                <img className={classes.imgHide} alt={"logo"} src={Logo}/>
             </Toolbar>
             <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
                 <div>

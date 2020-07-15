@@ -209,7 +209,6 @@ export default function Postedit(props) {
 }
 
 function Item(props) {
-    const classes = useStyles();
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>

@@ -9,7 +9,6 @@ import {DropzoneArea} from 'material-ui-dropzone'
 
 import cookie from 'react-cookies';
 import MUIRichTextEditor from "mui-rte";
-import {convertToRaw} from 'draft-js'
 
 const useStyles = makeStyles((theme) => ({
     fullWidth: {

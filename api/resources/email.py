@@ -13,11 +13,11 @@ class SendEmail(Resource):
             body = request.get_json()
 
 
-            return send_email('Password reset successful',
-                              sender='atsuker91@gmail.com',
-                              recipients='russ1337@gmail.com',
-                              text_body='Password reset was successful',
-                              html_body='<p>Password reset was successful</p>')
+            return send_email('',
+                              sender='',
+                              recipients='',
+                              text_body='',
+                              html_body='')
 
 
         except Exception as e:

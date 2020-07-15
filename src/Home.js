@@ -21,6 +21,8 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Logo from './img/logo.png';
 import AppBar from '@material-ui/core/AppBar';
 import Nav from './Nav';
+import BlogLatestHome from './blogLatestHome';
+import EventsLatestHome from './EventsLatestHome';
 import Image from './img/pic7.jpg'; // Import using relative path
 
 const useStyles = makeStyles((theme) => ({
@@ -116,7 +118,7 @@ function Home() {
                             <TimelineSeparator>
                                 <TimelineDot className={classes.firstIcon}>
                                     <Icon classes={{root: classes.iconRoot}}>
-                                        <img className={classes.imageIcon} src="./icons8-family-52.svg"/>
+                                        <img className={classes.imageIcon} alt={""} src="./icons8-family-52.svg"/>
                                     </Icon>
                                 </TimelineDot>
                                 <TimelineConnector/>
@@ -129,7 +131,7 @@ function Home() {
                             <TimelineSeparator>
                                 <TimelineDot className={classes.secondIcon}>
                                     <Icon classes={{root: classes.iconRoot}}>
-                                        <img className={classes.imageIcon} src="./icons8-welfare-100.svg"/>
+                                        <img className={classes.imageIcon} alt={""} src="./icons8-welfare-100.svg"/>
                                     </Icon>
                                 </TimelineDot>
                                 <TimelineConnector/>
@@ -143,7 +145,7 @@ function Home() {
                             <TimelineSeparator>
                                 <TimelineDot className={classes.thirdIcon}>
                                     <Icon classes={{root: classes.iconRoot}}>
-                                        <img className={classes.imageIcon} src="./icons8-teenager-male-100.svg"/>
+                                        <img className={classes.imageIcon} alt={""} src="./icons8-teenager-male-100.svg"/>
                                     </Icon>
                                 </TimelineDot>
                             </TimelineSeparator>
@@ -199,18 +201,14 @@ function Home() {
                             <FactCarousel/>
 
                         </Grid>
+                        <Grid item xs={6}>
+                            <EventsLatestHome/>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <BlogLatestHome/>
+                        </Grid>
                     </Grid>
                 </Container>
-            </Grid>
-            <Grid item xs={6}>
-                <Paper className={classes.eventButton}>
-                    <button className="home-mobile-button event-button">Events</button>
-                </Paper>
-            </Grid>
-            <Grid item xs={6}>
-                <Paper className={classes.newsButton}>
-                    <button className="home-mobile-button news-button">News</button>
-                </Paper>
             </Grid>
         </Grid>
     );
@@ -223,7 +221,7 @@ export function HomeHead() {
             <Nav/>
             <div className={classes.homeBg}>
                 <Container maxWidth="md">
-                    <h1><img className={classes.homeLogo} src={Logo}/></h1>
+                    <h1><img className={classes.homeLogo} alt={""} src={Logo}/></h1>
                 </Container>
             </div>
         </AppBar>

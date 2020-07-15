@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useState} from 'react';
 
 import './App.css';
 
@@ -33,6 +33,7 @@ import Blog, {BlogHead} from './blog';
 import BlogPost, {BlogPostHead} from './blogPost';
 import About, {AboutHead} from './About';
 import GetInvolved, {InvolvedHead} from './Getinvolved';
+import Impact, {ImpactHead} from './Impact';
 import Program, {ProgramHead} from './Programs';
 
 import ContactCard from "./ContactCard";
@@ -175,6 +176,9 @@ function App() {
                         <Route exact path="/getinvolved">
                             <InvolvedHead/>
                         </Route>
+                        <Route exact path="/impact">
+                            <ImpactHead/>
+                        </Route>
                         <Route exact path="/aboutus">
                             <AboutHead/>
                         </Route>
@@ -197,6 +201,9 @@ function App() {
                     <Route exact path="/getinvolved">
                         <GetInvolved/>
                     </Route>
+                    <Route exact path="/impact">
+                        <Impact/>
+                    </Route>
                     <Route exact path="/aboutus">
                         <About/>
                     </Route>
@@ -210,11 +217,11 @@ function App() {
                             <h2>Follow Us On Social Media!</h2>
                             <Grid container spacing={0}>
                                 <Grid item xs={4}><a className={"facebokIcon"}
-                                                     onClick={() => window.open("https://www.facebook.com/TheNewFosterCare/", "_blank")}><FacebookIcon/></a></Grid>
+                                                     target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/TheNewFosterCare/"><FacebookIcon/></a></Grid>
                                 <Grid item xs={4}><a className={"twitterIcon"}
-                                                     onClick={() => window.open("https://twitter.com/NewFosterCare", "_blank")}><TwitterIcon/></a></Grid>
+                                                     target="_blank" rel="noopener noreferrer" href="https://twitter.com/NewFosterCare"><TwitterIcon/></a></Grid>
                                 <Grid item xs={4}><a className={"instagramIcon"}
-                                                     onClick={() => window.open("https://www.facebook.com/TheNewFosterCare/", "_blank")}><InstagramIcon/></a></Grid>
+                                                     target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/thenewfostercare/"><InstagramIcon/></a></Grid>
                             </Grid>
                         </Container>
                     </Paper>

@@ -21,7 +21,7 @@ function Staff(props) {
         },
     }));
     const classes = staffStyles();
-    const [{data, loading, error}, refetch] = useAxios(
+    const [{data, loading, error}] = useAxios(
         '//'+window.location.hostname+':3500/api/staff'
     )
 
@@ -36,7 +36,7 @@ function Staff(props) {
                     <h2 className={classes.homeH2Main}>Leadership & Board</h2>
                 </Grid>
                 {
-                    data.map(item => <Item item={item}/>)
+                    data.map(item => <Item key={item._id.$oid} item={item}/>)
                 }
             </Grid>
         </Container>
@@ -90,7 +90,6 @@ function Item(props) {
         <Grid item xs={12} md={6} lg={4} >
             <Card className={classes.profileCard}>
                 <CardMedia
-                    square
                     className={classes.profilePic}
                     image={'//'+window.location.hostname+':3500/api/staff/pic/' + props.item._id.$oid}
                     title={props.item.name}

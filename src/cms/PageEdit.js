@@ -168,7 +168,6 @@ export default function PageEdit(props) {
 }
 
 function Item(props) {
-    const classes = useStyles();
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>

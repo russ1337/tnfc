@@ -46,7 +46,7 @@ export default function Newpost() {
                 body: files[i]
             };
 
-            fetch('//'+'//'+window.location.hostname+':3500/api/files/' + state.id + '/' + files[i].name, requestOptionsPost)
+            fetch('//'+window.location.hostname+':3500/api/files/' + state.id + '/' + files[i].name, requestOptionsPost)
                 .then(
                     response => response.json() // if the response is a JSON object
                 ).then(
@@ -168,7 +168,6 @@ export default function Newpost() {
 }
 
 function Item(props) {
-    const classes = useStyles();
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>

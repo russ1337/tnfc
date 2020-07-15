@@ -18,9 +18,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import Image from './img/pic9.jpg'; // Import using relative path
 import Pagination from '@material-ui/lab/Pagination';
 
-import {
-    useRouteMatch
-} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     involvedHeader: {
@@ -113,16 +110,17 @@ export default function Blog() {
     const [data, setData] = useState([]);
     const [pageCount, setPageCount] = useState(1);
 
-    const requestOptions = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify()
-    };
+
 
     useEffect(() => {
 // Update the document title using the browser API
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify()
+        };
         setPage(page);
-        fetch('//'+window.location.hostname+':3500/api/blog/posts?page=' + page + '&per_page=9', requestOptions)
+        fetch('//' + window.location.hostname + ':3500/api/blog/posts?page=' + page + '&per_page=9', requestOptions)
             .then((result) => result.json())
             .then(
                 (result) => result.map((item) => item.totalPages ? setPageCount(item.totalPages) : setData(result))
@@ -143,7 +141,7 @@ export default function Blog() {
                 </Grid>
                 <Grid item container alignItems="stretch" spacing={2} xs={12} lg={9}>
                     {
-                        data.map((item) => item.title ? <Item item={item}/> : null)
+                        data.map((item) => item.title ? <Item key={item._id.$oid} item={item}/> : null)
                     }
                     <Grid item xs={12}>
                         <Pagination page={page} count={pageCount} onChange={handlePageChange}/>
@@ -168,11 +166,14 @@ export default function Blog() {
                         </CardActions>
                         <CardActions className={classes.mobileHide}>
                             <Grid container>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><FacebookIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer"
+                                    href="https://www.facebook.com/TheNewFosterCare/" ><FacebookIcon
                                     className={classes.facebokIcon}/></a></Grid>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><TwitterIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer"
+                                    href="https://twitter.com/NewFosterCare"><TwitterIcon
                                     className={classes.twitterIcon}/></a></Grid>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><InstagramIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer"
+                                    href="https://www.instagram.com/thenewfostercare/"><InstagramIcon
                                     className={classes.instagramIcon}/></a></Grid>
                             </Grid>
                         </CardActions>
@@ -201,32 +202,31 @@ export function BlogHead() {
 };
 
 function Item(props) {
-    let {path, url} = useRouteMatch();
     const classes = useStyles();
     const handleClick = (event) => {
         window.location.href = 'news/' + props.item._id.$oid
     };
     return (
-        <Grid item xs={12} sm={6} lg={4}   spacing={2}>
+        <Grid item xs={12} sm={6} md={4}>
             <Card>
-            <CardActionArea className={classes.heightAdjust} onClick={handleClick}>
-                <CardContent>
-                    <Typography className={classes.postHead} gutterBottom variant="h5" component="h2">
-                        {props.item.title}
-                    </Typography>
-                    <Typography className={classes.postSubhead} variant="body2" color="textSecondary" component="p">
-                        {props.item.subTitle}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.item.date_created}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions className={classes.bottom}>
-                <Button onClick={handleClick} className={classes.postButton} size="small" color="primary">
-                    Read
-                </Button>
-            </CardActions>
+                <CardActionArea className={classes.heightAdjust} onClick={handleClick}>
+                    <CardContent>
+                        <Typography className={classes.postHead} gutterBottom variant="h5" component="h2">
+                            {props.item.title}
+                        </Typography>
+                        <Typography className={classes.postSubhead} variant="body2" color="textSecondary" component={'p'}>
+                            {props.item.subTitle}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component={'p'}>
+                            {props.item.date_created}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions className={classes.bottom}>
+                    <Button onClick={handleClick} className={classes.postButton} size="small" color="primary">
+                        Read
+                    </Button>
+                </CardActions>
             </Card>
         </Grid>
 

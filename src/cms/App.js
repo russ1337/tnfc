@@ -64,7 +64,6 @@ export default function App() {
     }
     const handleChange = (event) => {
         const name = event.target.name;
-        let index
         setState({
             ...state,
             [name]: event.target.value,
@@ -92,7 +91,7 @@ export default function App() {
                         onChange={handleChange}
                         inputProps={{
                             name: 'email',
-                            maxlength: '50',
+                            maxLength: '50',
                         }}
                         autoComplete="email"
                         autoFocus
@@ -105,7 +104,7 @@ export default function App() {
                         fullWidth
                         inputProps={{
                             name: 'password',
-                            maxlength: '50',
+                            maxLength: '50',
                         }}
                         label="Password"
                         type="password"

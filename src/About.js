@@ -8,6 +8,7 @@ import Nav from './Nav';
 import AboutTab from './AboutTabs';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Image from './img/pic1.jpg'; // Import using relative path
 const useStyles = makeStyles((theme) => ({
     vision: {
@@ -64,30 +65,30 @@ function About() {
     const classes = useStyles();
     return (
         <Grid container spacing={0}>
-            <Grid item component="Paper" xs={12} md={6} className={classes.vision}>
+            <Grid item component={Paper} xs={12} md={6} className={classes.vision}>
                 <Container>
                     <Icon className={classes.imageRoot}>
-                        <img className={classes.imageIcon} src="./icons8-family-52.svg"/>
+                        <img className={classes.imageIcon} alt={""} src="./icons8-family-52.svg"/>
                     </Icon>
 
                     <Typography variant="h5" component="h2" className={classes.circleH2}>
                         Vision
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component={'p'}>
                         Bringing people and organizations together to create a network of support for youth
                         with experience in foster care as they transition to a successful future.
                     </Typography>
                 </Container>
             </Grid>
-            <Grid item xs={12} md={6} className={classes.impact} component="Paper">
+            <Grid item xs={12} md={6} className={classes.impact} component={Paper} >
                 <Container>
                     <Icon className={classes.imageRoot}>
-                        <img className={classes.imageIcon} src="./icons8-welfare-100.svg"/>
+                        <img className={classes.imageIcon} alt={""} src="./icons8-welfare-100.svg"/>
                     </Icon>
                     <Typography variant="h5" component="h2" className={classes.circleH2}>
                         Desired Impact
                     </Typography>
-                    <Typography variant="body2" component="p">
+                    <Typography variant="body2" component={'p'}>
                         The New Foster Care desires to improve pathways for young people and to build their
                         foundation of support to increase their sense of self-worth. We also desire to utilize
                         their experiences to inform the work in foster care and assist others from similar

@@ -8,6 +8,10 @@ from resources.errors import SchemaValidationError, UnauthorizedError, \
 InternalServerError
 
 class VolunteerSignupApi(Resource):
+    def get(self):
+        questions = Messages.objects().to_json()
+        return Response(questions, mimetype="application/json", status=200)
+
     def post(self):
         try:
             body = request.get_json()

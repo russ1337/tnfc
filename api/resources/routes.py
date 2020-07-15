@@ -4,6 +4,8 @@ from .auth import SignupApi, LoginApi
 from .blog import BlogPostsApi, BlogApi
 from .pages import PagesApi, PageApi
 from .newsletterSignup import NewsletterSignupApi
+from .programQuestions import ProgramQuestionsApi
+from .messages import MessagesApi
 from .volunteerSignup import VolunteerSignupApi
 from .email import SendEmail
 
@@ -25,6 +27,10 @@ def initialize_routes(api):
     api.add_resource(NewsletterSignupApi, '/api/newsletter-signup')
 
     api.add_resource(VolunteerSignupApi, '/api/volunteer-signup')
+
+    api.add_resource(ProgramQuestionsApi, '/api/program-questions')
+
+    api.add_resource(MessagesApi, '/api/messages')
 
     api.add_resource(SendEmail, '/api/send-mail')
 

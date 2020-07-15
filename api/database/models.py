@@ -46,6 +46,18 @@ class Pages(db.Document):
     pictures = db.ListField(db.StringField(), default=[])
     body = db.StringField(required=True)
 
+class Messages(db.Document):
+    name = db.StringField(required=True)
+    email = db.EmailField(required=True)
+    subject = db.StringField(required=True)
+    message = db.StringField(required=True)
+
+class ProgramQuestions(db.Document):
+    name = db.StringField(required=True)
+    email = db.EmailField(required=True)
+    subject = db.StringField(required=True)
+    message = db.StringField(required=True)
+
 class VolunteerSignup(db.Document):
     firstName = db.StringField(required=True)
     lastName = db.StringField(required=True)

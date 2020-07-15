@@ -26,14 +26,15 @@ export default function OldStaff() {
     const classes = useStyles();
     const [data, setData] = useState([]);
 
-    const requestOptions = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify()
-    };
+
 
     useEffect(() => {
 // Update the document title using the browser API
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify()
+        };
         fetch('//'+window.location.hostname+':3500/api/staff', requestOptions)
             .then((result) => result.json())
             .then(
@@ -44,7 +45,7 @@ export default function OldStaff() {
     return (
         <div className={classes.root}>
             {
-                data.map((item) => <Item item={item}/>)
+                data.map((item) => <Item key={item._id.$oid} item={item}/>)
             }
         </div>
     );

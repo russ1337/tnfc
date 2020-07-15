@@ -87,7 +87,7 @@ export default function SignUp() {
                         onChange={handleChange}
                         inputProps={{
                             name: 'email',
-                            maxlength: '50',
+                            maxLength: '50',
                         }}
                         autoComplete="email"
                         autoFocus
@@ -100,7 +100,7 @@ export default function SignUp() {
                         fullWidth
                         inputProps={{
                             name: 'password',
-                            maxlength: '50',
+                            maxLength: '50',
                         }}
                         label="Password"
                         type="password"

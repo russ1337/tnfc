@@ -52,7 +52,7 @@ export default function ContentPage(props) {
                         body: result.body
                     })
             )
-    }, []);
+    }, [props]);
     return (
 
         <Container className={classes.pBody}>

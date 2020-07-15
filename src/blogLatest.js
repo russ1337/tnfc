@@ -30,13 +30,12 @@ export default function BlogLatest() {
     const classes = useStyles();
     const [data, setData] = useState([]);
 
-    const requestOptions = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify()
-    };
-
     useEffect(() => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify()
+        };
         fetch('//'+window.location.hostname+':3500/api/blog/posts?page=1&per_page=4', requestOptions)
             .then((result) => result.json())
             .then(
@@ -49,7 +48,7 @@ export default function BlogLatest() {
         <List className={classes.flexAdjust}>
 
             {
-                data.map((item) => item.title ? <Item item={item}/> : null)
+                data.map((item) => item.title ? <Item key={item._id.$oid} item={item}/> : null)
             }
         </List>
     );

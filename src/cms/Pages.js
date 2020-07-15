@@ -29,14 +29,15 @@ const useStyles = makeStyles((theme) => ({
 export default function OldStaff() {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    const requestOptions = {
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify()
-    };
+
 
     useEffect(() => {
 // Update the document title using the browser API
+        const requestOptions = {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify()
+        };
         fetch('//'+window.location.hostname+':3500/api/pages', requestOptions)
             .then((result) => result.json())
             .then(

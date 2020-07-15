@@ -37,9 +37,7 @@ ReactDOM.render(
                     {cookie.load('session') ? <Content/> : <Cms/>}
             </Route>
             <Route path="/">
-                <React.StrictMode>
                     <App/>
-                </React.StrictMode>
             </Route>
         </Switch>
     </Router>,

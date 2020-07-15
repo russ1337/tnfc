@@ -130,7 +130,7 @@ export default function VolunteerCard() {
                               spacing={2}>
                             <Grid item xs={12}>
 
-                                <Typography component="p">
+                                <Typography component={'p'}>
                                     Volunteer Signup
                                 </Typography>
                             </Grid>
@@ -140,7 +140,7 @@ export default function VolunteerCard() {
                                     onChange={handleChange}
                                     inputProps={{
                                         name: 'firstName',
-                                        maxlength: '20',
+                                        maxLength: '20',
                                     }}
                                     value={state.firstName}
                                     label="First Name" variant="outlined"/>
@@ -152,7 +152,7 @@ export default function VolunteerCard() {
                                     value={state.lastName}
                                     inputProps={{
                                         name: 'lastName',
-                                        maxlength: '20',
+                                        maxLength: '20',
                                     }}
                                     label="Last Name" variant="outlined"/>
                             </Grid>
@@ -163,7 +163,7 @@ export default function VolunteerCard() {
                                     className={classes.fullWidth}
                                     inputProps={{
                                         name: 'address',
-                                        maxlength: '50',
+                                        maxLength: '50',
                                     }}
                                     value={state.address}
                                     label="Address" variant="outlined"/>
@@ -173,7 +173,7 @@ export default function VolunteerCard() {
                                     onChange={handleChange}
                                     inputProps={{
                                         name: 'address2',
-                                        maxlength: '50',
+                                        maxLength: '50',
                                     }}
                                     value={state.address2}
                                     label="Apt Number" variant="outlined"/>
@@ -185,7 +185,7 @@ export default function VolunteerCard() {
                                            value={state.city}
                                            inputProps={{
                                                name: 'city',
-                                               maxlength: '20',
+                                               maxLength: '20',
                                            }}
                                            label="City" variant="outlined"/>
                             </Grid>
@@ -266,7 +266,7 @@ export default function VolunteerCard() {
                                     inputProps={{
                                         name: 'zip',
                                         type: 'tel',
-                                        maxlength: '5',
+                                        maxLength: '5',
                                     }}
                                     label="Zipcode" variant="outlined"/>
                             </Grid>
@@ -278,7 +278,7 @@ export default function VolunteerCard() {
                                     inputProps={{
                                         name: 'email',
                                         type: 'email',
-                                        maxlength: '50',
+                                        maxLength: '50',
                                     }}
                                     label="Email" variant="outlined"/>
                             </Grid>
@@ -290,7 +290,7 @@ export default function VolunteerCard() {
                                     inputProps={{
                                         name: 'phone',
                                         type: 'tel',
-                                        maxlength: '10',
+                                        maxLength: '10',
                                     }}
                                     label="phone" variant="outlined"/>
                             </Grid>
@@ -341,7 +341,7 @@ export default function VolunteerCard() {
                                                     value={state.other}
                                                     inputProps={{
                                                         name: 'other',
-                                                        maxlength: '20',
+                                                        maxLength: '20',
                                                     }}
                                                     label="Other" variant="filled"/>
                                             }

@@ -127,7 +127,7 @@ export default function BlogPost() {
                         date: result.date_created,
                     })
             )
-    }, []);
+    }, [articleId]);
 
     return (
 
@@ -166,11 +166,11 @@ export default function BlogPost() {
                         </CardActions>
                         <CardActions className={classes.mobileHide}>
                             <Grid container>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><FacebookIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/TheNewFosterCare/"><FacebookIcon
                                     className={classes.facebokIcon}/></a></Grid>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><TwitterIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/NewFosterCare"><TwitterIcon
                                     className={classes.twitterIcon}/></a></Grid>
-                                <Grid item className={classes.centerAlign} xs={4}><a href="#"><InstagramIcon
+                                <Grid item className={classes.centerAlign} xs={4}><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/thenewfostercare/"><InstagramIcon
                                     className={classes.instagramIcon}/></a></Grid>
                             </Grid>
                         </CardActions>
